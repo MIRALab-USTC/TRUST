@@ -1,0 +1,53 @@
+Third-party notices
+
+This distribution includes adapted third-party utilities for action distributions
+and scenario evaluation. Adaptations provide TRUST's normal/tanh distributions,
+vector observations, environment interfaces, and evaluation metrics.
+
+vmax/simulator/overrides/datatypes/observation.py,
+vmax/simulator/overrides/datatypes/roadgraph.py,
+vmax/simulator/overrides/datatypes/route.py,
+vmax/simulator/metrics/route.py:
+Copyright 2023 The Waymax Authors.
+Licensed under the Waymax License Agreement for Non-commercial Use.
+The complete license is included in LICENSES/Waymax.txt.
+These files have been adapted for TRUST's observation and evaluation interfaces.
+
+This software was made using the Waymax Licensed Materials, provided by Waymo LLC
+under the Waymax License Agreement for Non-Commercial Use, available at
+https://github.com/waymo-research/waymax/blob/main/LICENSE,
+and your access and use of the Waymx Licensed Materials are governed by the
+terms and conditions contained therein.
+
+@inproceedings{waymax, title={Waymax: An Accelerated, Data-Driven Simulator for
+Large-Scale Autonomous Driving Research}, author={Cole Gulino and Justin Fu and
+Wenjie Luo and George Tucker and Eli Bronstein and Yiren Lu and Jean Harb and
+Xinlei Pan and Yan Wang and Xiangyu Chen and John D. Co-Reyes and Rishabh
+Agarwal and Rebecca Roelofs and Yao Lu and Nico Montali and Paul Mougin and
+Zoey Yang and Brandyn White and Aleksandra Faust, and Rowan McAllister and
+Dragomir Anguelov and Benjamin Sapp}, booktitle={Proceedings of the Neural
+Information Processing Systems Track on Datasets and Benchmarks},year={2023}}
+
+V-Max-derived package and utility code:
+Copyright 2025 Valeo.
+Licensed under the MIT License, reproduced in LICENSES/VMax-MIT.txt.
+Source: https://github.com/valeoai/V-Max
+
+V-Max observation adaptations retain rectangular roadgraph filtering, path
+coordinate transforms, and route filtering from its Waymax-based extensions.
+
+vmax/agents/networks/distributions.py:
+Copyright 2024 The Brax Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Code source: https://github.com/google/brax/blob/main/brax/training/distribution.py

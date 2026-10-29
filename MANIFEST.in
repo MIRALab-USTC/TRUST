@@ -1,0 +1,7 @@
+include README.md
+include README.zh-CN.md
+include requirements.txt
+include NOTICE
+recursive-include LICENSES *.txt
+recursive-include assets *.png
+recursive-include vmax/config *.yaml

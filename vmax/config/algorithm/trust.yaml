@@ -1,0 +1,44 @@
+defaults:
+- /network/base
+- _self_
+name: TRUST
+learning_rate: 1e-4
+discount: 0.99
+tau: 0.005
+beta: 2.0
+expectile: 0.8
+epsilon: ${dataset.epsilon}
+iqr_alpha: 3.0
+numerical_epsilon: 1e-6
+batch_size: 32
+log_freq: 1000
+expected_dataset_size: 2000000
+network:
+  policy:
+    type: mlp
+    layer_sizes:
+    - 256
+    - 64
+    - 32
+    activation: relu
+    final_activation: null
+  value:
+    type: mlp
+    layer_sizes:
+    - 256
+    - 64
+    - 32
+    activation: relu
+    final_activation: null
+    num_networks: 1
+    shared_encoder: false
+  state_value:
+    type: mlp
+    layer_sizes:
+    - 256
+    - 64
+    - 32
+    activation: relu
+    final_activation: null
+    num_networks: 1
+    shared_encoder: false

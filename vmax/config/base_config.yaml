@@ -1,0 +1,66 @@
+hydra:
+  run:
+    dir: ${output_dir:${algorithm.name}, ${observation_type}, ${network.encoder},
+      ${name_run}, ${name_exp}}
+defaults:
+- _self_
+- algorithm: trust
+- network: base
+- dataset: womd
+- override hydra/job_logging: custom
+total_timesteps: 1000000
+save_freq: 5000
+seed: 0
+name_run: null
+name_exp: null
+offline_dataset_path: null
+observation_type: vec
+max_num_objects: 64
+scenario_length: 80
+termination_keys: [offroad, overlap, run_red_light]
+reward_type: linear
+reward_config:
+  overlap: -1.0
+  offroad: -1.0
+  red_light: -1.0
+  off_route: -0.6
+  progression: 0.2
+observation_config:
+  obs_past_num_steps: 5
+  objects:
+    features:
+    - waypoints
+    - velocity
+    - yaw
+    - size
+    - valid
+    num_closest_objects: 8
+  roadgraphs:
+    features:
+    - waypoints
+    - direction
+    - valid
+    element_types:
+    - 15
+    - 16
+    interval: 2
+    max_meters: 70
+    roadgraph_top_k: 200
+    meters_box:
+      front: 70
+      back: 5
+      left: 20
+      right: 20
+    max_num_lanes: 10
+    max_num_points_per_lane: 20
+  traffic_lights:
+    features:
+    - waypoints
+    - state
+    - valid
+    num_closest_traffic_lights: 5
+  path_target:
+    features:
+    - waypoints
+    num_points: 3
+    points_gap: 12

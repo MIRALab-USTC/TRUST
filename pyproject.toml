@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trust-offline-rl"
+version = "0.1.0"
+description = "Trajectory-restricted robust offline reinforcement learning"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license-files = ["NOTICE", "LICENSES/Apache-2.0.txt", "LICENSES/Waymax.txt", "LICENSES/VMax-MIT.txt"]
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+evaluation = [
+  "waymo-waymax @ git+https://github.com/waymo-research/waymax.git@a64dfec9be8576b60d9cecc94f406d9812d4a7d0",
+  "tensorflow>=2.16,<2.17",
+  "matplotlib>=3.7,<3.11",
+  "dm_env>=1.6",
+  "immutabledict>=2.2",
+  "mediapy>=1.1",
+  "tqdm>=4.65",
+]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vmax*"]
+
+[tool.setuptools.package-data]
+vmax = ["config/*.yaml", "config/**/*.yaml"]
+
